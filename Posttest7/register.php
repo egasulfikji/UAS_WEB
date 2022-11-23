@@ -53,6 +53,8 @@ if (isset($_POST['register'])) {
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+
 	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 
 	<link rel="stylesheet" type="text/css" href="style.css">
@@ -63,17 +65,21 @@ if (isset($_POST['register'])) {
 	<div class="container">
 		<form action="" method="POST" class="login-email">
             <p class="login-text" style="font-size: 2rem; font-weight: 800;">Register</p>
-			<div class="input-group">
-				<input type="text" placeholder="Username" name="username" required>
+			<div class="form-floating mb-4">
+				<input type="text" placeholder="Username" name="username" class="form-control" id="floatingInput" required>
+                <label for="floatingInput">Email address</label>
 			</div>
-			<div class="input-group">
-				<input type="text" placeholder="Nama" name="nama" required>
+            <div class="form-floating mb-4">
+				<input type="text" placeholder="Nama" name="nama" class="form-control" id="floatingInput" required>
+                <label for="floatingInput">Nama</label>
 			</div>
-			<div class="input-group">
-				<input type="text" placeholder="Password" name="password" required>
-            </div>
-            <div class="input-group">
-				<input type="text" placeholder="Confirm Password" name="confirm_password" required>
+			<div class="form-floating mb-4">
+				<input type="text" placeholder="Password" name="password" class="form-control" id="floatingInput" required>
+                <label for="floatingInput">Password</label>
+			</div>
+			<div class="form-floating mb-4">
+				<input type="text" placeholder="Confirm Password" name="confirm_password" class="form-control" id="floatingInput" required>
+                <label for="floatingInput">Confirm Password</label>
 			</div>
 			<div class="input-group">
 				<button name="register" class="btn">Register</button>
@@ -81,5 +87,6 @@ if (isset($_POST['register'])) {
 			<p class="login-register-text">Mempunyai Akun? <a href="login.php">Login disini</a>.</p>
 		</form>
 	</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

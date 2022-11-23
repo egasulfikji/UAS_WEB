@@ -1,7 +1,7 @@
 <?php 
     require 'config.php';
 
-    $result = mysqli_query($db, "SELECT * FROM kritik");
+    // $result = mysqli_query($db, "SELECT * FROM kritik");
 
     date_default_timezone_set("Asia/Makassar");
 ?>
@@ -13,27 +13,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YourCoffe</title>
-    <link rel="stylesheet" href="css/formulirkotak.css">
+    <link rel="stylesheet" href="css/formulirkotak.css?v8">
 
-    <style>
-        table, tr, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-            padding: 10px;
-        }
-        img {
-            width:100px;
-        }
-    </style>
 </head>
 <body>
-    
     <h1>Data Kotak dan Saran</h1>
     <p align="center">Hari ini adalah hari <?php echo date("l, d-m-Y, H:i:s"); ?></p>
-    <form method="GET" action="" align="center">
-        Cari Nama <input type="text" name="s">
-        <input type="submit" value="cari">
-    </form>
+    <div align="center">
+        <form class="box-cari" method= "get" action="">
+            <input type="text" placeholder= "Cari Pesan..." name="cari" value="<?php if(isset($_GET['cari'])){echo $_GET['cari'];} ?>">
+            <br>
+            <button type="submit"><img src="images/search.png"></button>
+        </form>  
+        </div>
 
     <br>
     
@@ -42,10 +34,9 @@
         <table border= "2" align="center" width="800px" cellspacing="0">
             <tr class="atas">
                 <th>No</th>
-                <th>Jenis Pesan</th>
                 <th>Nama</th>
                 <th>Pesan</th>
-                <th>Jenis Coffe Kesukaan</th>
+                <th >Jenis Coffe Kesukaan</th>
                 <th colspan="2">Actions</th>
                 
             </tr>
@@ -53,20 +44,20 @@
             <?php 
                 include "config.php";
                 $i = 1;
-                $nama = "";
-                if (isset($_GET['s']))
-                {
-                    $nama = $_GET['s'];
-                    $tampil = mysqli_query($db, "SELECT * FROM kritik WHERE nama LIKE '%$nama'");
-                }else
-                $tampil = mysqli_query($db, "SELECT * FROM kritik");
-                while($row = mysqli_fetch_array($result)){
+                if (isset($_GET['cari'])){
+                    $pencarian= $_GET['cari'];
+                    $query = "SELECT * FROM kritik WHERE pesan LIKE '%".$pencarian."%'";  
+                }else{
+                    $query= "SELECT * FROM kritik";
+                }
 
+
+                $read = mysqli_query($db, $query);
+                while($row = mysqli_fetch_assoc($read)){
             ?>
 
             <tr class="tengah">
                 <td align="center"><?=$i;?></td>
-                <td><?=$row['jenispesan']?></td>
                 <td><?=$row['nama']?></td>
                 <td><?=$row['pesan']?></td>
                 <td><img src="file-foto/<?php echo $row['foto']?>" alt=""></td>
@@ -102,4 +93,5 @@
     </div>
     </form>
 </body>
+
 </html>

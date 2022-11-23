@@ -33,6 +33,8 @@ if(isset($_POST['login'])){
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -44,14 +46,16 @@ if(isset($_POST['login'])){
 	<div class="container">
 		<form action="" method="POST" class="login-email">
 			<p class="login-text" style="font-size: 2rem; font-weight: 800;">Login</p>
-			<div class="input-group">
-				<input type="text" placeholder="Username" name="username" required>
+			<div class="form-floating mb-4">
+				<input type="text" placeholder="Username" name="username" class="form-control" id="floatingInput" required>
+                <label for="floatingInput">Email address</label>
+			</div>
+			<div class="form-floating mb-4">
+				<input type="password" placeholder="Password" name="password" class="form-control" id="floatingPassword" required>
+                <label for="floatingPassword">Password</label>
 			</div>
 			<div class="input-group">
-				<input type="password" placeholder="Password" name="password" required>
-			</div>
-			<div class="input-group">
-				<button name="login" class="btn">Login</button>
+				<button name="login" class="btn btn-outline-primary" type="submit" >Login</button>
 			</div>
 			<p class="login-register-text">Tidak Mempunyai Akun? <a href="register.php">Registrasi disini</a>.</p>
 
@@ -67,5 +71,6 @@ if(isset($_POST['login'])){
             ?>
         </form>
 	</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
