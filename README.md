@@ -21,6 +21,6 @@
   <h3> Fitur yang dapat diakses oleh <h1>User</h1></h3>
   <li> User dapat melihat jenis-jenis coffe
 </<li>
-  <li> User dapat menambahkan dan melihat kotak dan saran</<li>
+  <li> User dapat menambahkan, melihat dan mengedit kotak dan saran</<li>
 	
 <h3> Terdapat 2 Mode Tampilan Pada Website yaitu : Dark-Mode dan Light-Mode</h3>
