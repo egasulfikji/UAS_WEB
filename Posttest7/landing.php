@@ -1,11 +1,8 @@
 <?php 
     require 'config.php';
-    // if(!isset($_SESSION['login'])){
-    //     echo "<script>window.location = 'login.php'; </script>";
-    // }
 ?>
 
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

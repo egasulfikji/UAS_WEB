@@ -1,20 +1,19 @@
 <?php
 session_start();
-require('config.php');
+require('konek.php');
 
 if(isset($_POST['login'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
-    
 
-    $hasil = mysqli_query($db, "SELECT username, password FROM user WHERE username = '$username'");
+    $hasil = mysqli_query($conn, "SELECT username, password FROM user WHERE username = '$username'");
 
     if(mysqli_num_rows($hasil) == 1){
         $row = mysqli_fetch_assoc($hasil);
 
         if(password_verify($password, $row['password'])){
             $_SESSION['login'] = $row;
-            header("Location: landing.php");
+            header("Location: admin.php");
             exit;
         }
         else{
@@ -38,7 +37,7 @@ if(isset($_POST['login'])){
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
 
 	<title>Login</title>
 </head>
@@ -57,7 +56,6 @@ if(isset($_POST['login'])){
 			<div class="input-group">
 				<button name="login" class="btn btn-outline-primary" type="submit" >Login</button>
 			</div>
-			<p class="login-register-text">Tidak Mempunyai Akun? <a href="register.php">Registrasi disini</a>.</p>
 
             <?php 
             if (isset($erorr_pass)) {

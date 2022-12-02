@@ -10,7 +10,7 @@ body{
 }
 .container {
 	width: 50%;
-    margin: 50px;
+    margin: 0 auto;
     border: 8px solid #bb7272;
     background-color: #42032C;
 }
@@ -22,6 +22,7 @@ body{
     -webkit-text-stroke: .05rem var(--main-color);
     letter-spacing: .30px;
     text-align: center;
+    /* pointer-events: none; */
     position: relative;
 }
 
@@ -33,10 +34,4 @@ body{
     text-transform: none;
     color:var(--main-color);
     font-size: 30px;
-}
-
-footer{
-    color: #FFF;
-    background-color: #bd5800;
-    text-align: center;
 }

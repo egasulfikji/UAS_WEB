@@ -21,6 +21,13 @@
                 <td">DATA DIRI</td>
             </tr>
             <tr>
+                <td ">Jenis Pesan</td>
+                <td "><select name="jenispesan" id="">
+                    <option value="Kritik & Saran">Kritik & Saran</option>
+                    <option value="Pesan Cinta">Pesan Cinta</option>
+                </select></td>
+            </tr>
+            <tr>
                 <td >Nama</td>
                 <td ><input type="text" name="nama" placeholder="Masukkan nama anda"></td>
             </tr>
@@ -58,7 +65,4 @@
     </form>
     </div>
 </body>
-<footer>
-    Copyright @byega
-</footer>
 </html>

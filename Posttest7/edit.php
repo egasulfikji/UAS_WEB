@@ -8,12 +8,14 @@
     }
 
     if(isset($_POST['submit'])){
+        $jenispesan = $_POST['jenispesan'];
         $nama = $_POST['nama'];
         $alamat = $_POST['alamat'];
         $telepon = $_POST['telepon'];
+        $jeniskelamin = $_POST['jeniskelamin'];
         $pesan = $_POST['pesan'];
 
-        $update = mysqli_query($db, "UPDATE kritik SET nama='$nama', alamat='$alamat', telepon='$telepon', pesan='$pesan' WHERE id='$id'");
+        $update = mysqli_query($db, "UPDATE kritik SET jenispesan='$jenispesan', nama='$nama', alamat='$alamat', telepon='$telepon', jeniskelamin='$jeniskelamin', pesan='$pesan' WHERE id='$id'");
 
         if($update){
             echo "
@@ -26,7 +28,7 @@
             echo "
             <script>
                 alert('Data Anda gagal diubah');
-                document.location.href = 'formulirkotak.php';
+                document.location.href = 'formulir.php';
             </script>  
             ";
         }
@@ -46,22 +48,22 @@
     <div class="container">
     <h1 class="heading"> Menu Edit <span> silahkan diisi </span></h1>
     <form method="POST" action="">
-    <table class="table" >
+        <table class="table" >
             <tr>
-                <p">===========================================================================</p>
+                <p">=============================================================================================================================</p>
                 <td">DATA DIRI</td>
+                <br>
             </tr>
             <tr>
-                <td >Nama</td>
-                <td ><input type="text" name="nama" placeholder="Masukkan nama anda" value=<?=$row['nama'];?>></td>
+                <td >Jenis Pesan </td>
+                <td ><select name="jenispesan" id="">
+                    <option value=<?=$row['jenispesan'];?>>Kritik & Saran</option>
+                    <option value=<?=$row['jenispesan'];?>>Pesan Cinta</option>
+                </select></td>
             </tr>
             <tr>
-                <td >Alamat</td>
-                <td><input type="text" name="alamat" placeholder="Masukkan alamat anda" value=<?=$row['alamat'];?>></td>
-            </tr>
-            <tr>
-                <td>No Telepon</td>
-                <td><input type="number" name="telepon" placeholder="Masukkan no telepon" value=<?=$row['telepon'];?>></td>
+                <td>Nama</td>
+                <td><input type="text" name="nama" placeholder="Masukkan nama anda" value=<?=$row['nama'];?>></td>
             </tr>
             <tr>
                 <td><br></td>
@@ -70,16 +72,14 @@
                 <td >KOTAK DAN SARAN</td>
             </tr>
             <tr>
-                <td>Pesan</td>
+                <td ">Pesan</td>
                 <td><p><input type="text" name="pesan" placeholder="Masukkan pesan anda" value=<?=$row['pesan'];?>></p></td>
             </tr>
         </table>
-        
         <br>
         <td><button type="submit" name="submit" value="submit">Kirim</button></td>
         <p >=============================================================================================================================</p>
     </form>
     </div>
 </body>
-
 </html>
